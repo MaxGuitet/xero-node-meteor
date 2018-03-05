@@ -1,0 +1,83 @@
+{
+  "scripts": {
+    "prestart": "meteor npm prune --production=false & meteor npm install",
+    "start": "meteor --settings settings.json",
+    "pretest": "npm run lint --silent",
+    "test": "TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_BROWSER_DRIVER=nightmare meteor test --full-app --once --driver-package meteortesting:mocha",
+    "test-watch": "TEST_BROWSER_DRIVER=nightmare meteor test --driver-package meteortesting:mocha",
+    "test-app-watch": "TEST_BROWSER_DRIVER=nightmare meteor test --full-app --driver-package meteortesting:mocha",
+    "test-watch-terminal": "TEST_WATCH=1 TEST_BROWSER_DRIVER=nightmare meteor test --driver-package meteortesting:mocha",
+    "test-app-watch-terminal": "TEST_WATCH=1 TEST_BROWSER_DRIVER=nightmare meteor test --full-app --driver-package meteortesting:mocha",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "autoprefixer": "^6.4.1",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "faker": "^3.0.1",
+    "lodash": "^4.17.5",
+    "meteor-node-stubs": "^0.3.2",
+    "xero-node": "^2.19.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-import-resolver-meteor": "^0.3.3",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-meteor": "^4.0.0",
+    "eslint-plugin-react": "^6.2.2",
+    "nightmare": "^2.9.1",
+    "shell-source": "^1.1.0",
+    "shelljs": "^0.7.4"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": "off",
+      "import/prefer-default-export": "off",
+      "no-underscore-dangle": "off",
+      "object-shorthand": [
+        "error",
+        "always",
+        {
+          "avoidQuotes": false
+        }
+      ],
+      "meteor/eventmap-params": [
+        "error",
+        {
+          "eventParamName": "event",
+          "templateInstanceParamName": "instance"
+        }
+      ],
+      "meteor/template-names": [
+        "off"
+      ]
+    },
+    "settings": {
+      "import/resolver": "meteor"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<template name="Lists_show">
+  <div class="page lists-show">
+    <nav class="js-title-nav">
+      <div class="nav-group">
+        <a href="#" class="js-menu nav-item">
+          <span
+            class="icon-list-unordered"
+            title={{_ 'lists.show.showMenu'}}>
+          </span>
+        </a>
+      </div>
+
+      <h1 class="js-edit-list title-page">
+        <span class="title-wrapper">Xero Contacts</span>
+        <span class="count-list">{{contactsCount}}</span>
+      </h1>
+    </nav>
+
+    <div class="content-scrollable list-items">
+      {{#if xeroConnected}}
+        <div style="text-align: center">
+          <button type="button" class="btn btn-default js-update-organisation" style="margin: 10px auto;">Get Organisation name</button>
+          <p>Organisation: {{organisationName}}</p>
+          <button type="button" class="btn btn-default js-update-contacts" style="margin: 10px auto;">Get Contacts from Xero</button>
+        </div>
+        {{#each contacts}}
+          {{> Contacts_item}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">No Contact found</div>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="wrapper-message">
+          <div class="title-message">Login and connect to Xero first</div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</template>

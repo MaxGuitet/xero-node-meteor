@@ -1,0 +1,19 @@
+<template name="xeroConnectButton">
+  {{#if loggedIn}}
+    {{#if hasXeroEnabled}}
+      <p class="text-center">
+          <button type="button" class="btn btn-warning" id="disconnectXero">Disconnect Xero</button>
+      </p>
+    {{else}}
+      <p class="text-center">
+          <button type="button" class="btn btn-info{{#if isBusy}} disabled{{/if}}" id="connectXero">
+        {{#if isBusy}}
+            <i class="fa fa-cog fa-spin"></i> Connecting...
+        {{else}}
+            Connect with Xero
+        {{/if}}
+          </button>
+      </p>
+    {{/if}}
+  {{/if}}
+</template>

@@ -1,0 +1,44 @@
+<template name="App_body">
+  {{#HammerTouchArea gestureMap=templateGestures}}
+    <div id="container" class="{{menuOpen}} {{cordova}}">
+      <section id="menu">
+        {{#if currentUser}}
+          <div class="btns-group-vertical">
+            <a href="#" class="js-user-menu btn-secondary">
+              {{#if userMenuOpen}}
+                <span class="icon-arrow-up"></span>
+                {{else}}
+                <span class="icon-arrow-down"></span>
+              {{/if}}
+
+              {{emailLocalPart}}
+            </a>
+            {{#if userMenuOpen}}
+              <a class="js-logout btn-secondary">
+                {{_ 'layouts.appBody.logout'}}
+              </a>
+            {{/if}}
+          </div>
+        {{else}}
+          <div class="btns-group">
+            <a href="{{pathFor 'signin'}}" class="btn-secondary">
+              {{_ 'layouts.appBody.login'}}
+            </a>
+            <a href="{{pathFor 'join'}}" class="btn-secondary">
+              {{_ 'layouts.appBody.join'}}
+            </a>
+          </div>
+        {{/if}}
+
+        {{> xeroConnectButton}}
+
+      </section>
+
+      <div class="content-overlay"></div>
+
+      <div id="content-container">
+        {{> Template.dynamic template=main}}
+      </div>
+    </div>
+  {{/HammerTouchArea}}
+</template>

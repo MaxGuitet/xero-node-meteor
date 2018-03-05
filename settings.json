@@ -1,0 +1,7 @@
+{
+  "xero": {
+    "consumerKey":"YOUR_CONSUMER_KEY",
+    "consumerSecret":"YOUR_CONSUMER_SECRET",
+    "callbackUrl": "http://localhost:3000/xero/oauth/callback"
+  }
+}
