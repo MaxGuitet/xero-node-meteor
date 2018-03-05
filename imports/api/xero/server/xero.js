@@ -85,6 +85,7 @@ export const getXeroContacts = new ValidatedMethod({
 
     try {
       const contacts = await xeroClient.core.contacts.getContacts();
+      console.log(contacts);
       return contacts;
     } catch (err) {
       console.log(err);
